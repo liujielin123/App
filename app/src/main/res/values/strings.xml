@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">firstApp</string>
+    <string name="app_master">xxy</string>
+    <string name="action_settings">Settings</string>
+</resources>
