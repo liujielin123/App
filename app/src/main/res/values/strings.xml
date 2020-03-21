@@ -19,4 +19,7 @@
     <string name="comBc2" translatable="false">/</string>
     <string name="comBd1" translatable="false">.</string>
     <string name="comBd2" translatable="false">=</string>
+    <string name="bg" translatable="false">background</string>
+    <string name="congratulations">Happy   Birthday!</string>
+    <string name="from">Your Tom</string>
 </resources>
