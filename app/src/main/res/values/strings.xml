@@ -22,4 +22,7 @@
     <string name="bg" translatable="false">background</string>
     <string name="congratulations">Happy   Birthday!</string>
     <string name="from">Your Tom</string>
+    <string name="convIn">please input temperature</string>
+    <string name="convB">convert it to Fahrenheit degree</string>
+    <string name="convSh">result:</string>
 </resources>
