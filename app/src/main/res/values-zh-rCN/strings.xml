@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">你好</string>
+    <string name="action_settings">设置</string>
+    <string name="app_master">您好</string>
+    <string name="btn_name">登录</string>
+</resources>
