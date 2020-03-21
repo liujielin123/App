@@ -21,8 +21,8 @@
 
     <TableLayout
         android:id="@+id/tableLayout2"
-        android:layout_width="414dp"
-        android:layout_height="197dp"
+        android:layout_width="417dp"
+        android:layout_height="217dp"
         android:layout_marginTop="700dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,31 +38,44 @@
 
             <Button
                 android:id="@+id/button25"
-                android:layout_width="match_parent"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="87dp"
                 android:layout_height="match_parent"
                 android:background="@android:color/holo_blue_dark"
-                android:text="@string/comB7" />
+                android:text="@string/comB7"
+                android:textColor="@android:color/background_light"
+                android:textColorLink="@android:color/background_light"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button26"
-                android:layout_width="wrap_content"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="89dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_dark"
-                android:text="@string/comB8" />
+                android:text="@string/comB8"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button27"
-                android:layout_width="wrap_content"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="86dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_dark"
-                android:text="@string/comB9" />
+                android:text="@string/comB9"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button28"
-                android:layout_width="128dp"
-                android:layout_height="wrap_content"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="111dp"
+                android:layout_height="match_parent"
                 android:background="@android:color/holo_orange_dark"
-                android:text="@string/comBc2" />
+                android:text="@string/comBc2"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
         </TableRow>
 
         <TableRow
@@ -71,31 +84,43 @@
 
             <Button
                 android:id="@+id/button29"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_dark"
-                android:text="@string/comB4" />
+                android:text="@string/comB4"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button30"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_dark"
-                android:text="@string/comB5" />
+                android:text="@string/comB5"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button31"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_dark"
-                android:text="@string/comB6" />
+                android:text="@string/comB6"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button32"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_orange_dark"
-                android:text="@string/comBc1" />
+                android:text="@string/comBc1"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
         </TableRow>
 
         <TableRow
@@ -104,31 +129,43 @@
 
             <Button
                 android:id="@+id/button33"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_dark"
-                android:text="@string/comB1" />
+                android:text="@string/comB1"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button34"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_dark"
-                android:text="@string/comB2" />
+                android:text="@string/comB2"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button35"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_dark"
-                android:text="@string/comB3" />
+                android:text="@string/comB3"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button36"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_orange_dark"
-                android:text="@string/comBj2" />
+                android:text="@string/comBj2"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
 
         </TableRow>
 
@@ -138,31 +175,43 @@
 
             <Button
                 android:id="@+id/button37"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_dark"
-                android:text="@string/comB0" />
+                android:text="@string/comB0"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button38"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_dark"
-                android:text="@string/comBd1" />
+                android:text="@string/comBd1"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button39"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_dark"
-                android:text="@string/comBj1" />
+                android:text="@string/comBj1"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button40"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="153dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_orange_dark"
-                android:text="@string/comBd2" />
+                android:text="@string/comBd2"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
 
         </TableRow>
 
@@ -170,9 +219,9 @@
 
     <ScrollView
         android:layout_width="409dp"
-        android:layout_height="470dp"
+        android:layout_height="450dp"
         android:layout_marginTop="1dp"
-        android:scrollbarStyle="insideInset"
+        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
