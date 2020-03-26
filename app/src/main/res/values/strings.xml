@@ -25,4 +25,10 @@
     <string name="convIn">please input temperature</string>
     <string name="convB">convert it to Fahrenheit degree</string>
     <string name="convSh">result:</string>
+    <string name="teamName">teamA</string>
+    <string name="score" translatable="false">0</string>
+    <string name="lable_add1">+1 points</string>
+    <string name="lable_add2">+2 points</string>
+    <string name="lable_add3">+3 points</string>
+    <string name="lable_reset">reset</string>
 </resources>

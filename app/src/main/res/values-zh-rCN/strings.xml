@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">你好</string>
+    <string name="app_name">您好</string>
     <string name="action_settings">设置</string>
     <string name="app_master">您好</string>
     <string name="btn_name">登录</string>
@@ -9,4 +9,9 @@
     <string name="convIn">请输入摄氏度</string>
     <string name="convB">转换为华氏温度</string>
     <string name="convSh">结果为：</string>
+    <string name="teamName">队伍A</string>
+    <string name="lable_add1">+1 分</string>
+    <string name="lable_add2">+2 分</string>
+    <string name="lable_add3">+3 分</string>
+    <string name="lable_reset">重置</string>
 </resources>
