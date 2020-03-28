@@ -21,62 +21,141 @@
         android:layout_marginEnd="126dp"
         android:layout_marginRight="126dp"
         android:layout_marginBottom="99dp"
+        android:background="@android:color/holo_red_dark"
+        android:onClick="btnReset"
         android:text="@string/lable_reset"
-        android:textSize="20sp"
-        android:onClick="btnReset"/>
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:layout_marginHorizontal="16dp">
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="16dp">
+
+            <TextView
+                android:id="@+id/teamNameA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="@string/teamName1"
+                android:textColor="@android:color/holo_orange_light"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/scoreA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:text="@string/score"
+                android:textColor="@android:color/holo_orange_light"
+                android:textSize="65sp" />
+
+            <Button
+                android:id="@+id/btn_a1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/holo_orange_light"
+                android:onClick="btnAddA1"
+                android:text="@string/lable_add1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_a2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/holo_orange_light"
+                android:onClick="btnAddA2"
+                android:text="@string/lable_add2"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_a3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_orange_light"
+                android:onClick="btnAddA3"
+                android:text="@string/lable_add3"
+                android:textSize="20sp" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/teamName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="16dp"
-            android:gravity="center"
-            android:text="@string/teamName"
-            android:textSize="25sp" />
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent"/>
 
-        <TextView
-            android:id="@+id/score"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:gravity="center"
-            android:text="@string/score"
-            android:textSize="65sp" />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="16dp">
 
-        <Button
-            android:id="@+id/btn_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/lable_add1"
-            android:textSize="20sp"
-            android:onClick="btnAdd1"/>
+            <TextView
+                android:id="@+id/teamNameB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="@string/teamName2"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="25sp" />
 
-        <Button
-            android:id="@+id/btn_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/lable_add2"
-            android:textSize="20sp"
-            android:onClick="btnAdd2"/>
+            <TextView
+                android:id="@+id/scoreB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:text="@string/score"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="65sp" />
 
-        <Button
-            android:id="@+id/btn_3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/lable_add3"
-            android:textSize="20sp"
-            android:onClick="btnAdd3"/>
+            <Button
+                android:id="@+id/btn_b1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/holo_blue_light"
+                android:onClick="btnAddB1"
+                android:text="@string/lable_add1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_b2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/holo_blue_light"
+                android:onClick="btnAddB2"
+                android:text="@string/lable_add2"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_b3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_light"
+                android:onClick="btnAddB3"
+                android:text="@string/lable_add3"
+                android:textSize="20sp" />
+        </LinearLayout>
+
     </LinearLayout>
+
+
 
 </RelativeLayout>

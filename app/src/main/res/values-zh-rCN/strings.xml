@@ -9,9 +9,10 @@
     <string name="convIn">请输入摄氏度</string>
     <string name="convB">转换为华氏温度</string>
     <string name="convSh">结果为：</string>
-    <string name="teamName">队伍A</string>
+    <string name="teamName1">队伍A</string>
     <string name="lable_add1">+1 分</string>
     <string name="lable_add2">+2 分</string>
     <string name="lable_add3">+3 分</string>
     <string name="lable_reset">重置</string>
+    <string name="teamName2">队伍B</string>
 </resources>
