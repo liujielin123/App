@@ -21,30 +21,12 @@ public class SecondActivity extends AppCompatActivity {
         scoreB=findViewById(R.id.scoreB);
     }
 
-    public void btnAddA1(View v){
-        showScore(1,scoreA);
-    }
-
-    public void btnAddA2(View v){
-        showScore(2,scoreA);
-    }
-
-    public void btnAddA3(View v){
-        showScore(3,scoreA);
-    }
-
-    public void btnAddB1(View v){
-        showScore(1,scoreB);
-    }
-
-    public void btnAddB2(View v){
-        showScore(2,scoreB);
-    }
-
-    public void btnAddB3(View v){
-        showScore(3,scoreB);
-    }
-
+    public void btnAddA1(View v){ showScore(1,scoreA); }
+    public void btnAddA2(View v){ showScore(2,scoreA); }
+    public void btnAddA3(View v){ showScore(3,scoreA); }
+    public void btnAddB1(View v){ showScore(1,scoreB); }
+    public void btnAddB2(View v){ showScore(2,scoreB); }
+    public void btnAddB3(View v){ showScore(3,scoreB); }
     public void btnReset(View v){
         scoreA.setText("0");
         scoreB.setText("0");

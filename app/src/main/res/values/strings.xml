@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">firstApp</string>
-    <string name="btn_name">login</string>
     <string name="app_master">Hello</string>
     <string name="action_settings">Settings</string>
     <string name="comB1" translatable="false">1</string>
@@ -27,9 +26,13 @@
     <string name="convSh">result:</string>
     <string name="teamName1">teamA</string>
     <string name="score" translatable="false">0</string>
-    <string name="lable_add1">+1 points</string>
-    <string name="lable_add2">+2 points</string>
-    <string name="lable_add3">+3 points</string>
-    <string name="lable_reset">reset</string>
+    <string name="label_add1">+1 points</string>
+    <string name="label_add2">+2 points</string>
+    <string name="label_add3">+3 points</string>
+    <string name="label_reset">reset</string>
     <string name="teamName2">teamB</string>
+    <string name="hint_rmb">Please input your RMB</string>
+    <string name="btn_dollar_label">Dollar</string>
+    <string name="btn_euro_label">Euro</string>
+    <string name="btn_won_label">Won</string>
 </resources>

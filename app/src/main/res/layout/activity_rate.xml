@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="16dp"
+    tools:context=".RateActivity">
+
+    <EditText
+        android:id="@+id/rmb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_rmb"
+        android:inputType="numberDecimal"
+        android:gravity="center"
+        android:layout_marginBottom="24dp">
+    </EditText>
+
+    <TextView
+        android:id="@+id/showOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="35sp"
+        android:text="@string/score"
+        android:layout_marginBottom="24dp">
+    </TextView>
+
+    <Button
+        android:id="@+id/btn_dollar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:onClick="onClick"
+        android:text="@string/btn_dollar_label"
+        android:layout_marginBottom="24dp">
+    </Button>
+
+    <Button
+        android:id="@+id/btn_euro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="@string/btn_euro_label"
+        android:layout_marginBottom="24dp">
+    </Button>
+
+    <Button
+        android:id="@+id/btn_won"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_won_label"
+        android:onClick="onClick">
+    </Button>
+
+</LinearLayout>
