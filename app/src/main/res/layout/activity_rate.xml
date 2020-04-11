@@ -54,7 +54,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_won_label"
-        android:onClick="onClick">
+        android:onClick="onClick"
+        android:layout_marginBottom="48dp">
+    </Button>
+
+    <Button
+        android:id="@+id/btn_openCfg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_orange_light"
+        android:onClick="openOne"
+        android:text="@string/btn_config">
     </Button>
 
 </LinearLayout>

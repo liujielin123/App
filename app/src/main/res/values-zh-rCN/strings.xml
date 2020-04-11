@@ -18,4 +18,6 @@
     <string name="btn_dollar_label">美元</string>
     <string name="btn_euro_label">欧元</string>
     <string name="btn_won_label">韩元</string>
+    <string name="btn_config">配置</string>
+    <string name="btn_save">保存</string>
 </resources>
