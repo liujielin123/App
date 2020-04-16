@@ -1,15 +1,11 @@
 package com.swufe.firstapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,12 +14,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.prefs.Preferences;
 
 public class RateActivity extends AppCompatActivity implements Runnable {
 
@@ -62,8 +62,16 @@ public class RateActivity extends AppCompatActivity implements Runnable {
             @Override
             public void handleMessage(@NonNull Message msg) {
                 if(msg.what==5){
-                    String str=(String) msg.obj;
-                    Log.i(Tag,"onCreate:handleMessage msg="+str);
+                    Bundle bundle=(Bundle) msg.obj;
+                    dollarRate=bundle.getFloat("dollarRate",0.0f);
+                    euroRate=bundle.getFloat("euroRate",0.0f);
+                    wonRate=bundle.getFloat("wonRate",0.0f);
+
+                    Log.i(Tag,"onCreate:handlerMessage:dollarRate="+dollarRate);
+                    Log.i(Tag,"onCreate:handlerMessage:euroRate="+euroRate);
+                    Log.i(Tag,"onCreate:handlerMessage:wonRate="+wonRate);
+
+                    Toast.makeText(RateActivity.this,"Rates has updated",Toast.LENGTH_SHORT).show();
                 }
                 super.handleMessage(msg);
             }
@@ -149,26 +157,20 @@ public class RateActivity extends AppCompatActivity implements Runnable {
     @Override
     public void run() {
         Log.i(Tag,"run:run()....");
-        for(int i=1;i<=5;i++){
-            Log.i(Tag,"run:i="+i);
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
-        //获取Message对象，用于返回主线程
-        Message msg=handler.obtainMessage();
-        msg.what=5;
-        msg.obj="Hello from run()";
-        handler.sendMessage(msg);
+        //用于保存从网络获取的汇率
+        Bundle bdl_rate=new Bundle();
 
         //获取网络数据
-
-        URL url= null;
+        //方法1
+        /*URL url= null;
         try {
-            url = new URL("http://forex.hexun.com/rmbhl/#zkRate");
+            url = new URL("http://www.usd-cny.com/bankofchina.htm");
             HttpURLConnection http= (HttpURLConnection) url.openConnection();
             InputStream in =http.getInputStream();
             String html=inputStream2String(in);
@@ -177,8 +179,43 @@ public class RateActivity extends AppCompatActivity implements Runnable {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }*/
+
+        //方法2
+        Document doc = null;
+        try {
+            doc = Jsoup.connect("http://www.usd-cny.com/bankofchina.htm").get();
+            Log.i(Tag,"run:"+doc.title());
+            //获取td中的数据
+            Elements tds=doc.getElementsByTag("td");
+            /*for(Element td:tds){
+                Log.i(Tag,"run:"+td);
+            }*/
+            Element td1,td2;
+            for(int i=0;i<tds.size();i+=6){
+                td1=tds.get(i);//货币名称
+                td2=tds.get(i+5);//td1对应的汇率
+                Log.i(Tag,"run:"+td1.text()+"==>"+td2.text());
+
+                try{
+                    if("美元".equals(td1.text())){ bdl_rate.putFloat("dollarRate",100f/Float.valueOf(td2.text()));}
+                    else if("欧元".equals(td1.text())){ bdl_rate.putFloat("euroRate",100f/Float.valueOf(td2.text()));}
+                    else if("韩元".equals(td1.text())){ bdl_rate.putFloat("wonRate",100f/Float.valueOf(td2.text()));}
+                }
+                catch (Exception ee){
+                    Log.i(Tag,"run:网页已改变，请修改JSoup源代码");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
+        //获取Message对象，用于返回主线程
+        Message msg=handler.obtainMessage();
+        msg.what=5;
+        //msg.obj="Hello from run()";
+        msg.obj=bdl_rate;
+        handler.sendMessage(msg);
     }
 
     private String inputStream2String(InputStream in)throws IOException{
