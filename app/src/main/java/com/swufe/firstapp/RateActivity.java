@@ -24,6 +24,8 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class RateActivity extends AppCompatActivity implements Runnable {
 
@@ -34,6 +36,7 @@ public class RateActivity extends AppCompatActivity implements Runnable {
     private double dollarRate;
     private double euroRate;
     private double wonRate;
+    private String updateRate;//构建汇率更新字符串，格式："时间(年.月.日)"+":"+"true/false"(true表示当日已更新，false表示当日未更新)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,38 +47,64 @@ public class RateActivity extends AppCompatActivity implements Runnable {
         show=findViewById(R.id.showOut);
 
         //获取SP中的数据
-        SharedPreferences sharedPreferences=getSharedPreferences("myRate", Activity.MODE_PRIVATE);
+        SharedPreferences sp=getSharedPreferences("myRate", Activity.MODE_PRIVATE);
         //SharedPreferences sp= PreferenceManager.getDefaultSharedPreferences(this);
-        dollarRate=sharedPreferences.getFloat("dollar_rate",0.0f);
-        euroRate=sharedPreferences.getFloat("euro_rate",0.0f);
-        wonRate=sharedPreferences.getFloat("won_rate",0.0f);
+        updateRate=sp.getString("update_rate","0000.00.00:false");
+        dollarRate=sp.getFloat("dollar_rate",0.0f);
+        euroRate=sp.getFloat("euro_rate",0.0f);
+        wonRate=sp.getFloat("won_rate",0.0f);
 
+        Log.i(Tag,"onCreate:updateRate="+updateRate);
         Log.i(Tag,"onCreate:dollarRate="+dollarRate);
         Log.i(Tag,"onCreate:euroRate="+euroRate);
         Log.i(Tag,"onCreate:wonRate="+wonRate);
 
-        //开启子线程
-        Thread thread=new Thread(this);
-        thread.start();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd");//设置日期格式
+        String OSTime=df.format(new Date());//获取系统当前时间
 
-        handler=new Handler(){
-            @Override
-            public void handleMessage(@NonNull Message msg) {
-                if(msg.what==5){
-                    Bundle bundle=(Bundle) msg.obj;
-                    dollarRate=bundle.getFloat("dollarRate",0.0f);
-                    euroRate=bundle.getFloat("euroRate",0.0f);
-                    wonRate=bundle.getFloat("wonRate",0.0f);
+        Log.i(Tag,"onCreate:OSTime="+OSTime);
 
-                    Log.i(Tag,"onCreate:handlerMessage:dollarRate="+dollarRate);
-                    Log.i(Tag,"onCreate:handlerMessage:euroRate="+euroRate);
-                    Log.i(Tag,"onCreate:handlerMessage:wonRate="+wonRate);
+        //检查上次更新日期
+        if(!OSTime.equals(updateRate.substring(0,10))){
+            updateRate=OSTime+":false";
+        }
 
-                    Toast.makeText(RateActivity.this,"Rates has updated",Toast.LENGTH_SHORT).show();
+        //检查当日是否更新，若未更新，则开启子线程完成更新，并将数据保存至sp
+        if(updateRate.substring(11).equals("false")){
+            //开启子线程
+            Thread thread=new Thread(this);
+            thread.start();
+            handler=new Handler(){
+                @Override
+                public void handleMessage(@NonNull Message msg) {
+                    if(msg.what==5){
+                        Bundle bundle=(Bundle) msg.obj;
+                        dollarRate=bundle.getFloat("dollarRate",0.0f);
+                        euroRate=bundle.getFloat("euroRate",0.0f);
+                        wonRate=bundle.getFloat("wonRate",0.0f);
+
+                        //将新的汇率值保存到SP中
+                        SharedPreferences sp=getSharedPreferences("myRate", Activity.MODE_PRIVATE);
+                        SharedPreferences.Editor editor=sp.edit();
+                        editor.putString("update_rate",updateRate.replace("false","true"));
+                        editor.putFloat("dollar_rate",(float) dollarRate);
+                        editor.putFloat("euro_rate",(float) euroRate);
+                        editor.putFloat("won_rate",(float) wonRate);
+                        editor.commit();
+
+                        Log.i(Tag,"onActivityResult:handlerMessage:committing of rate finished");
+
+                        Log.i(Tag,"onCreate:handlerMessage"+updateRate);
+                        Log.i(Tag,"onCreate:handlerMessage:dollarRate="+dollarRate);
+                        Log.i(Tag,"onCreate:handlerMessage:euroRate="+euroRate);
+                        Log.i(Tag,"onCreate:handlerMessage:wonRate="+wonRate);
+
+                        Toast.makeText(RateActivity.this,"Rates has updated",Toast.LENGTH_SHORT).show();
+                    }
+                    super.handleMessage(msg);
                 }
-                super.handleMessage(msg);
-            }
-        };
+            };
+        }
     }
 
     @Override
@@ -138,18 +167,6 @@ public class RateActivity extends AppCompatActivity implements Runnable {
             Log.i(Tag, "onActivityResult:dollarRate=" + dollarRate);
             Log.i(Tag, "onActivityResult:euroRate=" + euroRate);
             Log.i(Tag, "onActivityResult:wonRate=" + wonRate);
-
-            //将新的汇率值保存到SP中
-            SharedPreferences sharedPreferences=getSharedPreferences("myRate", Activity.MODE_PRIVATE);
-            //SharedPreferences sp= PreferenceManager.getDefaultSharedPreferences(this);
-            SharedPreferences.Editor editor=sharedPreferences.edit();
-            editor.putFloat("dollar_rate",(float) dollarRate);
-            editor.putFloat("euro_rate",(float) euroRate);
-            editor.putFloat("won_rate",(float) wonRate);
-            editor.commit();
-
-            Log.i(Tag,"onActivityResult:committing finished");
-
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -203,7 +220,7 @@ public class RateActivity extends AppCompatActivity implements Runnable {
                     else if("韩元".equals(td1.text())){ bdl_rate.putFloat("wonRate",100f/Float.valueOf(td2.text()));}
                 }
                 catch (Exception ee){
-                    Log.i(Tag,"run:网页已改变，请修改JSoup源代码");
+                    Log.i(Tag,"run:网页已改变，请修改解析网页源代码");
                 }
             }
         } catch (IOException e) {
