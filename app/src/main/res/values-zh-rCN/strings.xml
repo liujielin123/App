@@ -20,4 +20,5 @@
     <string name="btn_won_label">韩元</string>
     <string name="btn_config">配置</string>
     <string name="btn_save">保存</string>
+    <string name="label_open_list">打开汇率列表</string>
 </resources>

@@ -37,4 +37,5 @@
     <string name="btn_won_label">Won</string>
     <string name="btn_config">configure</string>
     <string name="btn_save">save</string>
+    <string name="label_open_list">Open Rate List</string>
 </resources>

@@ -74,37 +74,37 @@ public class RateActivity extends AppCompatActivity implements Runnable {
             //开启子线程
             Thread thread=new Thread(this);
             thread.start();
-            handler=new Handler(){
-                @Override
-                public void handleMessage(@NonNull Message msg) {
-                    if(msg.what==5){
-                        Bundle bundle=(Bundle) msg.obj;
-                        dollarRate=bundle.getFloat("dollarRate",0.0f);
-                        euroRate=bundle.getFloat("euroRate",0.0f);
-                        wonRate=bundle.getFloat("wonRate",0.0f);
-
-                        //将新的汇率值保存到SP中
-                        SharedPreferences sp=getSharedPreferences("myRate", Activity.MODE_PRIVATE);
-                        SharedPreferences.Editor editor=sp.edit();
-                        editor.putString("update_rate",updateRate.replace("false","true"));
-                        editor.putFloat("dollar_rate",(float) dollarRate);
-                        editor.putFloat("euro_rate",(float) euroRate);
-                        editor.putFloat("won_rate",(float) wonRate);
-                        editor.commit();
-
-                        Log.i(Tag,"onActivityResult:handlerMessage:committing of rate finished");
-
-                        Log.i(Tag,"onCreate:handlerMessage"+updateRate);
-                        Log.i(Tag,"onCreate:handlerMessage:dollarRate="+dollarRate);
-                        Log.i(Tag,"onCreate:handlerMessage:euroRate="+euroRate);
-                        Log.i(Tag,"onCreate:handlerMessage:wonRate="+wonRate);
-
-                        Toast.makeText(RateActivity.this,"Rates has updated",Toast.LENGTH_SHORT).show();
-                    }
-                    super.handleMessage(msg);
-                }
-            };
         }
+        handler=new Handler(){
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                if(msg.what==5){
+                    Bundle bundle=(Bundle) msg.obj;
+                    dollarRate=bundle.getFloat("dollarRate",0.0f);
+                    euroRate=bundle.getFloat("euroRate",0.0f);
+                    wonRate=bundle.getFloat("wonRate",0.0f);
+
+                    //将新的汇率值保存到SP中
+                    SharedPreferences sp=getSharedPreferences("myRate", Activity.MODE_PRIVATE);
+                    SharedPreferences.Editor editor=sp.edit();
+                    editor.putString("update_rate",updateRate.replace("false","true"));
+                    editor.putFloat("dollar_rate",(float) dollarRate);
+                    editor.putFloat("euro_rate",(float) euroRate);
+                    editor.putFloat("won_rate",(float) wonRate);
+                    editor.commit();
+
+                    Log.i(Tag,"onActivityResult:handlerMessage:committing of rate finished");
+
+                    Log.i(Tag,"onCreate:handlerMessage"+updateRate);
+                    Log.i(Tag,"onCreate:handlerMessage:dollarRate="+dollarRate);
+                    Log.i(Tag,"onCreate:handlerMessage:euroRate="+euroRate);
+                    Log.i(Tag,"onCreate:handlerMessage:wonRate="+wonRate);
+
+                    Toast.makeText(RateActivity.this,"Rates has updated",Toast.LENGTH_SHORT).show();
+                }
+                super.handleMessage(msg);
+            }
+        };
     }
 
     @Override
@@ -117,6 +117,11 @@ public class RateActivity extends AppCompatActivity implements Runnable {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==R.id.menu_set){
             openCfg();
+        }
+        else if(item.getItemId()==R.id.open_list){
+            //打开列表窗口
+            Intent list = new Intent(this, RateListActivity.class);
+            startActivityForResult(list, 1);
         }
         return super.onOptionsItemSelected(item);
     }
