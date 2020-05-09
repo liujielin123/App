@@ -114,7 +114,7 @@ public class RateActivity extends AppCompatActivity implements Runnable {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
         if(item.getItemId()==R.id.menu_set){
             openCfg();
         }
