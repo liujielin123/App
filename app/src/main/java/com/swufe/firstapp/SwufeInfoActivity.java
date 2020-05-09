@@ -110,8 +110,6 @@ public class SwufeInfoActivity extends AppCompatActivity implements Runnable, Ad
                 super.handleMessage(msg);
             }
         };
-        Thread thread=new Thread(this);
-        thread.start();
         out=findViewById(R.id.resultList);
         in=findViewById(R.id.keyWord);
         in.addTextChangedListener(new TextWatcher() {
