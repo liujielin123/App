@@ -13,28 +13,32 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".SwufeInfoActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".RateCallActivity" />
-        <activity android:name=".MyAdapter" />
-        <activity android:name=".RateList2Activity" />
-        <activity android:name=".MyListActivity" />
-        <activity android:name=".RateListActivity" />
-        <activity android:name=".ConfigActivity" />
-        <activity android:name=".RateActivity">
-
             <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
-        <activity android:name=".SecondActivity">
+        <activity android:name=".RateCallActivity" android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity android:name=".MyAdapter" />
+        <activity android:name=".RateList2Activity" />
+        <activity android:name=".MyListActivity" >
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <activity android:name=".RateListActivity" />
+        <activity android:name=".ConfigActivity" />
+        <activity android:name=".RateActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SecondActivity">
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,5 +48,4 @@
             -->
         </activity>
     </application>
-
 </manifest>
