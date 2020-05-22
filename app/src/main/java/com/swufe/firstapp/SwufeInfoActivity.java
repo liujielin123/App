@@ -91,7 +91,7 @@ public class SwufeInfoActivity extends AppCompatActivity implements Runnable, Ad
                 if(msg.what==5){
                     Vector<String> data_list=(Vector<String>) msg.obj;
 
-                    //将新的汇率值保存到SP中
+                    //将新的公告保存到SP中
                     SharedPreferences sp=getSharedPreferences("mySwufeData", Activity.MODE_PRIVATE);
                     SharedPreferences.Editor editor=sp.edit();
                     data=new String[data_list.size()];
@@ -160,13 +160,13 @@ public class SwufeInfoActivity extends AppCompatActivity implements Runnable, Ad
         Vector<String> list=new Vector<String>();
 
         try {
+            int count=0;
             doc = Jsoup.connect("https://it.swufe.edu.cn/index/tzgg.htm").get();
             Log.i(Tag,"run:"+doc.title());
             //获取a中的数据
             Elements as=(doc.select("body > div.main > div > div > div.col-xs-12.col-md-9 > div > ul")).select("a");
             Elements td=(doc.select("body > div.main > div > div > div.col-xs-12.col-md-9 > div > div > table > tbody > tr > td > table > tbody > tr")).select("td");
             int siteNum=Integer.parseInt((td.get(0).text()).substring(td.get(0).text().indexOf("/")+1));
-            int count=0;
             Log.i(Tag,siteNum+"");
             for(int i=0;i<as.size();i++){
                 list.add(count,as.get(i).attr("title")+"#https://it.swufe.edu.cn"+(as.get(i).attr("href")).replace("..",""));
@@ -182,6 +182,7 @@ public class SwufeInfoActivity extends AppCompatActivity implements Runnable, Ad
                     count++;
                 }
             }
+
         } catch (IOException e) {
             e.printStackTrace();
             Log.i(Tag,"run:请检查网络，如果网络没问题则说明网页已改变，那么请修改解析网页源代码");
