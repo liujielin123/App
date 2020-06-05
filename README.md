@@ -29,4 +29,6 @@
     SwufeInfoActivity1.0:对学院公告关键字查询 app进行了一次小小的完善
     rate5.0:为汇率计算程序添加SQLite数据库，使从网络获取的数据保存在数据库中
     SwufeInfoActivity1.1：对学院公告关键字查询 app的数据一周一更新的机制做了改变
+    ViewPager1.0:对ViewPager的一次实践
+    Vote1.0:投票应用案例实践
     
