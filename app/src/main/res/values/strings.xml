@@ -40,4 +40,7 @@
     <string name="label_open_list">Open Rate List</string>
     <string name="hint_keyword">Please input your keyword</string>
     <string name="non_data" translatable="false">No data!</string>
+    <string name="label_first" translatable="false">First Page</string>
+    <string name="label_second" translatable="false">Second Page</string>
+    <string name="label_third" translatable="false">Third Page</string>
 </resources>
