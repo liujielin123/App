@@ -131,7 +131,7 @@
                 android:layout_marginBottom="16dp"
                 android:background="@android:color/holo_blue_light"
                 android:onClick="btnAddB1"
-                android:text="@string/label_add1"
+                android:text="@string/lable_add1"
                 android:textSize="20sp" />
 
             <Button
@@ -141,7 +141,7 @@
                 android:layout_marginBottom="16dp"
                 android:background="@android:color/holo_blue_light"
                 android:onClick="btnAddB2"
-                android:text="@string/label_add2"
+                android:text="@string/lable_add2"
                 android:textSize="20sp" />
 
             <Button
@@ -150,7 +150,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_light"
                 android:onClick="btnAddB3"
-                android:text="@string/label_add3"
+                android:text="@string/lable_add3"
                 android:textSize="20sp" />
         </LinearLayout>
 

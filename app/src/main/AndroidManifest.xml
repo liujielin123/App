@@ -12,9 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ViewPagerActivity"></activity>
-        <activity android:name=".SwufeInfoActivity">
+        <activity android:name=".VoteActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ViewPagerActivity" >
+           <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <activity android:name=".SwufeInfoActivity">
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +41,6 @@
         <activity android:name=".MyAdapter" />
         <activity android:name=".RateList2Activity" />
         <activity android:name=".MyListActivity">
-
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,14 +52,13 @@
         <activity android:name=".RateListActivity" />
         <activity android:name=".ConfigActivity" />
         <activity android:name=".RateActivity">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity android:name=".SecondActivity">
-
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

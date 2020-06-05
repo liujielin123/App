@@ -22,4 +22,8 @@
     <string name="btn_save">保存</string>
     <string name="label_open_list">打开汇率列表</string>
     <string name="hint_keyword">请输入要搜索的关键字</string>
+    <string name="hello_world">欢迎使用！</string>
+    <string name="lab_abstain">弃权</string>
+    <string name="lab_approve">支持</string>
+    <string name="lab_object">反对</string>
 </resources>

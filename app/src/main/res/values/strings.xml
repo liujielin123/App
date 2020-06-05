@@ -43,4 +43,11 @@
     <string name="label_first" translatable="false">First Page</string>
     <string name="label_second" translatable="false">Second Page</string>
     <string name="label_third" translatable="false">Third Page</string>
+    <string name="lable_add1" translatable="false">+1 points</string>
+    <string name="lable_add2" translatable="false">+1 points</string>
+    <string name="lable_add3" translatable="false">+1 points</string>
+    <string name="hello_world">Welcome</string>
+    <string name="lab_approve">approve</string>
+    <string name="lab_object">object</string>
+    <string name="lab_abstain">abstain</string>
 </resources>
